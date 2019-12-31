@@ -24,6 +24,9 @@
 - (NSArray<KTVHCDataCacheItem *> *)allCacheItem;
 - (KTVHCDataCacheItem *)cacheItemWithURL:(NSURL *)URL;
 
+// 插入视频url, 和本地路径
+- (void)insertUnitWithURL:(NSURL *)URL fileURL:(NSURL *)fileURL;
+
 - (void)deleteUnitWithURL:(NSURL *)URL;
 - (void)deleteUnitsWithLength:(long long)length;
 - (void)deleteAllUnits;

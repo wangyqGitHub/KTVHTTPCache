@@ -48,6 +48,12 @@
 - (long long)totalCacheLength;
 
 /**
+ *  Insert cache.
+ */
+- (void)insertUnitWithURL:(NSURL *)URL fileURL:(NSURL *)fileURL;
+
+
+/**
  *  Delete cache.
  */
 - (void)deleteCacheWithURL:(NSURL *)URL;

@@ -49,6 +49,10 @@
         NSLog(@"Unsupport Content-Type Filter reviced URL : %@, %@", URL, contentType);
         return NO;
     }];
+    
+    
+//    NSURL *url = [[NSBundle mainBundle] URLForResource:@"testVideo.mp4" withExtension:nil];
+//    [KTVHTTPCache insertUnitWithURL:[NSURL URLWithString:@"http://12345/dfds.mp4"] fileURL:url];
 }
 
 - (void)setupItems
@@ -61,6 +65,8 @@
                                               URLString:@"http://qiniuuwmp3.changba.com/941946870.mp4"];
     MediaItem *item4 = [[MediaItem alloc] initWithTitle:@"张学友 - 我真的受伤了"
                                               URLString:@"http://lzaiuw.changba.com/userdata/video/940071102.mp4"];
+    
+//    MediaItem *item5 = [[MediaItem alloc] initWithTitle:@"测试本地视频" URLString:@"http://12345/dfds.mp4"];
     self.items = @[item1, item2, item3, item4];
     [self.tableView reloadData];
 }

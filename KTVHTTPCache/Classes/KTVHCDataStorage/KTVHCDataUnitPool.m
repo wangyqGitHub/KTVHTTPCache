@@ -136,6 +136,20 @@
     return cacheItems;
 }
 
+- (void)insertUnitWithURL:(NSURL *)URL fileURL:(NSURL *)fileURL;
+{
+    long long offset = 0;
+    // 把自己路径下的文件, 拷贝到对应的缓存路径中
+    NSString * path = [KTVHCPathTool unitItemPathWithURL:URL copyFromOriginalFileURL:fileURL];
+    KTVHCDataUnitItem *unitItem = [[KTVHCDataUnitItem alloc] initWithPath:path offset:offset];
+    unsigned long long fileLength  = [[NSFileManager defaultManager] attributesOfItemAtPath:unitItem.absolutePath error:nil].fileSize;
+    [unitItem updateLength:fileLength];
+    KTVHCDataUnit * unit = [[KTVHCDataUnitPool pool] unitWithURL:URL];
+    [unit updateResponseHeaders:nil totalLength:fileLength];
+    [unit insertUnitItem:unitItem];
+
+}
+
 - (void)deleteUnitWithURL:(NSURL *)URL
 {
     if (URL.absoluteString.length <= 0) {

@@ -18,6 +18,10 @@
 + (NSString *)converToRelativePath:(NSString *)path;
 + (NSString *)converToAbsoultePath:(NSString *)path;
 
+// 拷贝本地文件路径
++ (NSString *)unitItemPathWithURL:(NSURL *)URL copyFromOriginalFileURL:(NSURL *)fileURL;
+
+
 + (void)createFileAtPath:(NSString *)path;
 + (void)createDirectoryAtPath:(NSString *)path;
 + (NSError *)deleteFileAtPath:(NSString *)path;

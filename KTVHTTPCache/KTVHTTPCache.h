@@ -34,7 +34,7 @@ FOUNDATION_EXPORT const unsigned char KTVHTTPCacheVersionString[];
 #endif
 
 /**
- *  KTVHTTPCache is a smart media cache framework.
+ * KTVHTTPCache is a smart media cache framework.
  */
 @interface KTVHTTPCache : NSObject
 
@@ -81,6 +81,14 @@ FOUNDATION_EXPORT const unsigned char KTVHTTPCacheVersionString[];
  *  The prefix for API is 'cache'.
  */
 #pragma mark - Data Storage
+
+/**
+*  Insert local video file to KTVHttpCache
+*
+*  @param URL : The URL for HTTP content.
+*  @param fileURL : The local file url
+*/
++ (void)insertUnitWithURL:(NSURL *)URL fileURL:(NSURL *)fileURL;
 
 /**
  *  Convert the URL to the file URL if the cache is complete.

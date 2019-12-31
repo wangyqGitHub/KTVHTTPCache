@@ -39,6 +39,11 @@
 
 #pragma mark - Data Storage
 
++ (void)insertUnitWithURL:(NSURL *)URL fileURL:(NSURL *)fileURL;
+{
+    [[KTVHCDataStorage storage] insertUnitWithURL:URL fileURL:fileURL];
+}
+
 + (NSURL *)cacheCompleteFileURLWithURL:(NSURL *)URL
 {
     return [[KTVHCDataStorage storage] completeFileURLWithURL:URL];

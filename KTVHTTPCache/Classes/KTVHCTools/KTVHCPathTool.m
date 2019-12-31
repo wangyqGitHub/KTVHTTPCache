@@ -95,6 +95,17 @@
     return path;
 }
 
++ (NSString *)unitItemPathWithURL:(NSURL *)URL copyFromOriginalFileURL:(NSURL *)fileURL;
+{
+    NSString * baseFileName = [[KTVHCURLTool tool] keyWithURL:URL];
+    NSString * directoryPath = [self directoryPathWithURL:URL];
+    NSString *fileName = [[NSString stringWithFormat:@"%@", baseFileName] stringByAppendingPathExtension:fileURL.pathExtension];
+    NSString *temp_path = [directoryPath stringByAppendingPathComponent:fileName];
+    NSError * error;
+    [[NSFileManager defaultManager] copyItemAtURL:fileURL toURL:[NSURL fileURLWithPath:temp_path] error:&error];
+    return [self converToRelativePath:temp_path];
+}
+
 + (void)createFileAtPath:(NSString *)path
 {
     if (path.length <= 0) {

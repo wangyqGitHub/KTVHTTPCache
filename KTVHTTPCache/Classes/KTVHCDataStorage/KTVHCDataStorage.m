@@ -74,6 +74,12 @@
     return [[KTVHCDataUnitPool pool] totalCacheLength];
 }
 
+- (void)insertUnitWithURL:(NSURL *)URL fileURL:(NSURL *)fileURL;
+{
+    [[KTVHCDataUnitPool pool] deleteUnitWithURL:URL];
+    [[KTVHCDataUnitPool pool] insertUnitWithURL:URL fileURL:fileURL];
+}
+
 - (void)deleteCacheWithURL:(NSURL *)URL
 {
     [[KTVHCDataUnitPool pool] deleteUnitWithURL:URL];
