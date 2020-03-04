@@ -85,6 +85,10 @@
     [[KTVHCDataUnitPool pool] deleteUnitWithURL:URL];
 }
 
+- (void)deleteCacheWithURL:(NSURL *)URL force:(BOOL)force{
+    [[KTVHCDataUnitPool pool] deleteUnitWithURL:URL force:force];
+}
+
 - (void)deleteAllCaches
 {
     [[KTVHCDataUnitPool pool] deleteAllUnits];

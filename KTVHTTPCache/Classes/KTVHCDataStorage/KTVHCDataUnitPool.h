@@ -28,6 +28,7 @@
 - (void)insertUnitWithURL:(NSURL *)URL fileURL:(NSURL *)fileURL;
 
 - (void)deleteUnitWithURL:(NSURL *)URL;
+- (void)deleteUnitWithURL:(NSURL *)URL force:(BOOL)force;
 - (void)deleteUnitsWithLength:(long long)length;
 - (void)deleteAllUnits;
 

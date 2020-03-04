@@ -167,6 +167,22 @@
     [self unlock];
 }
 
+- (void)deleteUnitWithURL:(NSURL *)URL force:(BOOL)force{
+    if (URL.absoluteString.length <= 0) {
+        return;
+    }
+    [self lock];
+    NSString *key = [[KTVHCURLTool tool] keyWithURL:URL];
+    KTVHCDataUnit *obj = [self.unitQueue unitWithKey:key];
+    if (obj && (obj.workingCount <= 0 || force)){
+        KTVHCLogDataUnit(@"%p, Delete Unit\nUnit : %@\nFunc : %s", self, obj, __func__);
+        [obj deleteFiles];
+        [self.unitQueue popUnit:obj];
+        [self setNeedsArchive];
+    }
+    [self unlock];
+}
+
 - (void)deleteUnitsWithLength:(long long)length
 {
     if (length <= 0) {

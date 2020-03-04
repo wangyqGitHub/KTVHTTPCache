@@ -89,6 +89,10 @@
     [[KTVHCDataStorage storage] deleteCacheWithURL:URL];
 }
 
++ (void)cacheDeleteCacheWithURL:(NSURL *)URL force:(BOOL)force{
+    [[KTVHCDataStorage storage] deleteCacheWithURL:URL force:force];
+}
+
 + (void)cacheDeleteAllCaches
 {
     [[KTVHCDataStorage storage] deleteAllCaches];

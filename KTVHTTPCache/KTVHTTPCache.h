@@ -158,6 +158,9 @@ FOUNDATION_EXPORT const unsigned char KTVHTTPCacheVersionString[];
  */
 + (void)cacheDeleteCacheWithURL:(NSURL *)URL;
 
+
++ (void)cacheDeleteCacheWithURL:(NSURL *)URL force:(BOOL)force;
+
 /**
  *  Delete all caches.
  */
